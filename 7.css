@@ -1,0 +1,102 @@
+/* https://s9a.page/tape */
+:root{--tape-filter:none;--tape-bluv:#11dff1;--tape-play:#fbbfff;--tape-loud:#eee833;--tape-luvu:#44f477;--tape-blaq:#0e0e0e;--tape-watt:#e0e0e0;--tape-hex:#e0e0e0;--tape-mix:transparent}.tape-watt{--tape-hex:var(--tape-watt)}.tape-luvu{--tape-hex:var(--tape-luvu)}.tape-loud{--tape-hex:var(--tape-loud)}.tape-play{--tape-hex:var(--tape-play)}.tape-bluv{--tape-hex:var(--tape-bluv)}.tape-flat{border-color:transparent}.tape-flap{border-color:currentColor}.tape-flow{--tape-remix:none}.tape-flow :not(.tape-skip){background-color:transparent;color:inherit}.tape-blaq,.tape-bluv,.tape-loud,.tape-luvu,.tape-play,.tape-watt{--tape-mix:var(--tape-hex);--tape-remix:none;color:var(--tape-blaq)!important;background-color:var(--tape-mix)!important;background-image:var(--tape-remix);filter:var(--tape-filter)}.tape-blaq{--tape-mix:var(--tape-blaq);color:var(--tape-hex)!important}.tape-erase,.tape-erase *{color:transparent!important}
+
+/* play. */
+
+[class] {
+  --do: 0deg;
+  --re: calc(360deg / 7);
+  --mi: calc(720deg / 7);
+  --fa: calc(1080deg / 7);
+  --so: calc(-1080deg / 7);
+  --la: calc(-720deg / 7);
+  --ti: calc(-360deg / 7);
+}
+
+:nth-child(1n) { --tape-filter: hue-rotate(var(--do)) }
+:nth-child(2n) { --tape-filter: hue-rotate(var(--re)) }
+:nth-child(3n) { --tape-filter: hue-rotate(var(--mi)) }
+:nth-child(4n) { --tape-filter: hue-rotate(var(--fa)) }
+:nth-child(5n) { --tape-filter: hue-rotate(var(--so)) }
+:nth-child(6n) { --tape-filter: hue-rotate(var(--la)) }
+:nth-child(7n) { --tape-filter: hue-rotate(var(--ti)) }
+
+:root {
+  --tape-play: gold;
+  --tape-remix: linear-gradient(gold, violet, deepskyblue, hotpink, salmon, turquoise, fuchsia, gold);
+}
+
+::selection {
+  background: var(--tape-blaq);
+  color: var(--tape-hex);
+}
+
+:any-link {
+  color: inherit;
+  display: inline-flex;
+}
+
+:focus {
+  text-shadow: 0 0 2ex;
+  box-shadow: 0 0 1ex 1ex;
+  outline: thick groove;
+  text-decoration-style: dotted;
+}
+
+:hover {
+  text-decoration-style: double;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: max(3ch, 4vmax + 1vmin);
+  line-height: 1.5;
+}
+
+body {
+  margin: 1ch;
+  overflow-wrap: anywhere;
+}
+
+article {
+  contain: layout;
+  padding: 1ch;
+}
+
+nav {
+  contain: layout;
+  display: flex;
+  flex-flow: column-reverse;
+  font-size: 1.236em;
+  margin-block: 1rem;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+nav a {
+  padding-inline: 1ch;
+}
+
+h1 {
+  font-family: fantasy;
+  font-weight: unset;
+  margin: 0;
+  margin-inline-end: 1em;
+  float: right;
+  writing-mode: vertical-rl;
+}
+
+::first-letter {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+@media (orientation: portrait) {
+  nav {
+    clear: both;
+    writing-mode: sideways-rl;
+  }
+}
